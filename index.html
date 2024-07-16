@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabourFeed</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="landing-container">
+        <div class="content">
+            <h1 class="animate-fadeInDown">LabourFeed</h1>
+            <p class="small-text animate-fadeInDown">Painter | Plumber | Electrician | Carpenter | Civil Worker etc.</p>
+            <div id="user-type-selection" class="animate-fadeInUp">
+                <button id="customer-btn" class="user-type-btn" onclick="selectUserType('customer')">Register as Customer</button>
+                <button id="provider-btn" class="user-type-btn" onclick="selectUserType('provider')">Register as Service Provider</button>
+            </div>
+            <div id="registration-form-container" class="hidden animate-fadeIn">
+                <a href="#" id="back-btn" class="back-btn">←</a> <!-- Back Arrow -->
+                <h2>Register as <span id="user-type-label">Customer</span></h2>
+                <form id="registration-form">
+                    <input type="hidden" id="user-type" name="user_type" value="customer">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input type="tel" id="mobile" name="mobile" required>
+                    </div>
+                    <div class="form-group provider-only hidden">
+                        <label for="category">Category</label>
+                        <input type="text" id="category" name="category">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" onclick="registerUser()">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="login-container" class="hidden">
+        <div id="tab-content-wrapper">
+            <div id="profile" class="tab-content">
+                <h2>Your Profile</h2>
+                <p>Name: <span id="profile-name"></span></p>
+                <p>Mobile Number: <span id="profile-mobile"></span></p>
+                <p class="provider-only">Category: <span id="profile-category"></span></p>
+            </div>
+            <div id="categories" class="tab-content hidden">
+                <h2>Categories</h2>
+                <input type="text" id="category-search" placeholder="Search...">
+                <div id="category-list">
+                    <div class="category" onclick="showServiceProviders('painter')">
+                        <p>Painter</p>
+                    </div>
+                    <div class="category" onclick="showServiceProviders('plumber')">
+                        <p>Plumber</p>
+                    </div>
+                    <div class="category" onclick="showServiceProviders('electrician')">
+                        <p>Electrician</p>
+                    </div>
+                    <div class="category" onclick="showServiceProviders('carpenter')">
+                        <p>Carpenter</p>
+                    </div>
+                    <div class="category" onclick="showServiceProviders('civil-worker')">
+                        <p>Civil Worker</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tabs">
+            <button id="profile-tab" class="tab-btn active" onclick="showTab('profile')">Profile</button>
+            <button id="categories-tab" class="tab-btn" onclick="showTab('categories')">Categories</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
